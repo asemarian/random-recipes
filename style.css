@@ -113,6 +113,52 @@ body {
 
 
 
+#error-overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--orange);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-size: 6.5rem;
+    text-align: center;
+}
+
+#error-overlay>p:nth-child(2) {
+    font-size: 3rem;
+}
+
+#error-overlay>button {
+    background: none;
+    border-radius: 5rem;
+    border: 0.2rem solid white;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.65rem;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#error-overlay>button:hover {
+    color: var(--orange);
+    background-color: white;
+}
+
+
+
+
+
+
 #recipe-page {
     display: flex;
 }

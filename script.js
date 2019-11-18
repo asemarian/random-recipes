@@ -4,6 +4,9 @@ const getRandomRecipeButton = document.querySelector("#welcome-page>button");
 
 const loadingOverlay = document.getElementById("loading-overlay");
 
+const errorOverlay = document.getElementById("error-overlay");
+const refreshPageButton = document.querySelector("#error-overlay>button");
+
 const refreshRecipeButton = document.getElementById("refresh-recipe");
 
 const recipePage = document.getElementById("recipe-page");
@@ -25,6 +28,7 @@ const ingredientsSection = document.getElementById("ingredients");
 
     hideElement(recipePage);
     hideElement(loadingOverlay);
+    hideElement(errorOverlay);
 
     (function setBackgroundImageRandomly() {
         backgroundImage.src = `welcome-background-${Math.ceil(Math.random() * 3)}.jpg`;
@@ -56,7 +60,7 @@ function getRandomRecipe() {
     loadingOverlay.style.opacity = "1";
 
     const xhr = new XMLHttpRequest();
-
+    xhr.timeout = 10000;
     xhr.open("GET", "https://www.themealdb.com/api/json/v1/1/random.php");
     xhr.onload = () => {
 
@@ -75,6 +79,12 @@ function getRandomRecipe() {
                 window.onscroll = () => refreshRecipeButton.style.opacity = "0.5";
                 directionsSection.onscroll = () => refreshRecipeButton.style.opacity = "0.5";
             });
+        }
+    }
+    xhr.onerror = xhr.ontimeout = () => {
+        showElement(errorOverlay);
+        refreshPageButton.onclick = () => {
+            location.reload();
         }
     }
     xhr.send();
