@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Raleway&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: "Raleway", sans-serif;
+    --orange: #ff8700;
+    --brown: #331b00;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+}
+
+#background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+#welcome-page{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(0deg, #331b00d9 0%, #ff880040 100%);        
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3.5rem;
+}
+
+#welcome-page>h1 {
+    font-size: 5rem;
+    text-align: center;
+}
+
+#welcome-page>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-family: inherit;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    background-color: var(--orange);
+    color: white;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+#welcome-page>button:hover img {
+    transform: rotate(-35deg);
+}
+
+#welcome-page>button>img {
+    width: 4rem;
+}
+
+
+
+
+
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.6s;
+    background-color: white;
+}
+
+#loading-spinner {
+    width: 15rem;
+    height: 15rem;
+    border: 0.8rem solid var(--orange);
+    border-top: 0.8rem solid white;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+#recipe-page {
+    display: flex;
+}
+
+#refresh-recipe {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    z-index: 1;
+    transition: all 0.6s ease-in-out;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(10rem);
+    } 100% {
+        transform: translateX(0);
+    }
+}
+
+#refresh-recipe>img {
+    width: 6rem;
+}
+
+#refresh-recipe:hover {
+    opacity: 1 !important;
+    transform: rotate(-35deg);
+}
+
+#ingredients {
+    height: 100vh;
+    width: 35vw;
+    padding: 2rem;
+    overflow: auto;
+    background-color: var(--orange);
+    color: white;
+}
+
+#recipe-title {
+    font-size: 7rem;
+    font-family: "Caveat";
+    text-align: center;
+}
+
+#recipe-title::after {
+    content: "";
+    display: block;
+    margin: 1rem auto;
+    width: 0%;
+    opacity: 0;
+    border: 0.2rem solid white;
+    border-radius: 5rem;
+    animation: spread 4s 2s forwards ease;
+}
+
+@keyframes spread {
+    0% {
+        width: 0;
+        opacity: 1;
+    } 100% {
+        width: 85%;
+        opacity: 1;
+    }
+}
+
+#category-origin-container {
+    display: flex;
+    margin: auto;
+    font-size: 1.5rem;
+    width: 80%;
+}
+
+#category-origin-container>#recipe-category {
+    margin-right: auto;
+}
+
+#ingredients>p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+#ingredients>ul {
+    font-size: 2rem;
+    margin-left: 5rem;
+}
+
+#ingredients>ul>li {
+    margin-bottom: 0.5rem;
+}
+
+#directions {
+    height: 100vh;
+    overflow: auto;
+    background-color: white;
+    color: var(--brown);
+    width: 65vw;
+}
+
+#recipe-image {
+    width: 100vw;
+    max-width: 100%;
+}
+
+#directions> img + p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#directions>ol {
+    margin-left: 7rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#directions>ol>li {
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+
+@media (max-width: 900px) {
+    #category-origin-container {
+        flex-direction: column;
+    }
+
+    #category-origin-container>* {
+        margin: auto;
+    }
+
+    #recipe-title {
+        font-size: 5.5rem;
+    }
+
+    #ingredients>ul {
+    margin-left: 3rem;
+    }
+}
+
+@media (max-width: 800px) {
+    #recipe-title {
+        font-size: 4rem;
+    }
+
+    #ingredients>p {
+        font-size: 2rem;
+    }
+
+    #directions>img+p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 675px) {
+    #welcome-page>h1 {
+        font-size: 4rem;
+    }
+
+    #welcome-page>button {
+        padding: 1.5rem 2.5rem;
+    }
+
+    #category-origin-container {
+        flex-direction: row;
+    }
+
+    #recipe-page {
+        flex-direction: column;
+    }
+
+    #ingredients {
+        width: 100%;
+        height: 100%;
+    }
+
+    #ingredients>#recipe-title {
+        font-size: 5rem;
+    }
+
+    #ingredients>p {
+        font-size: 2.5rem;
+    }
+
+    #ingredients>ul {
+    font-size: 2rem;
+    margin-left: 4rem;
+    }
+
+    #directions {
+        width: 100%;
+        height: 100%;
+    }
+
+    #directions>img+p {
+        font-size: 2.5rem;
+    }
+
+    #directions>ol {
+        font-size: 2rem;
+        margin-right: 2rem;
+        margin-left: 6rem;
+    }
+
+    #refresh-recipe>img {
+        width: 4.8rem;
+        border: 0.1rem solid white;
+        border-radius: 50%;
+    }
+
+    #refresh-recipe {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+
+    #loading-spinner {
+        width: 10rem;
+        height: 10rem;
+    }
+}

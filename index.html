@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Cook something new today">
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="style.css">
+    <title>RandomRecipes | Cook something new today</title>
+</head>
+
+<body>
+
+    <img src="" alt="" id="background-image">
+    <section id="welcome-page">
+        <h1>Cook something new today</h1>
+        <button>
+            <img src="icon.png" alt="">
+            Get a Random Recipe
+        </button>
+    </section>
+
+    <div id="loading-overlay">
+        <div id="loading-spinner"></div>
+    </div>
+
+    <section id="recipe-page">
+
+        <a href="#" id="refresh-recipe" title="Get a new random recipe">
+            <img src="icon.png" alt="">
+        </a>
+
+        <section id="ingredients">
+            <h1 id="recipe-title"></h1>
+            <div id="category-origin-container">
+                <div id="recipe-category"></div>
+                <div id="recipe-origin"></div>
+            </div>
+            <p>Ingredients</p>
+            <ul></ul>
+        </section>
+
+        <section id="directions">
+
+            <img id="recipe-image" src="" alt="">
+            <p>Directions</p>
+            <ol id="recipe-directions"></ol>
+
+        </section>
+
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
