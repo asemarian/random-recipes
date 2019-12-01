@@ -60,7 +60,7 @@ function getRandomRecipe() {
     loadingOverlay.style.opacity = "1";
 
     const xhr = new XMLHttpRequest();
-    xhr.timeout = 10000;
+    xhr.timeout = 30000;
     xhr.open("GET", "https://www.themealdb.com/api/json/v1/1/random.php");
     xhr.onload = () => {
 
